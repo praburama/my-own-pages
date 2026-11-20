@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Own Pages ♡</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 20px 12px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(145deg, #252435, #51465d, #88758c);
+  color: white;
+}
+
+.phone {
+  max-width: 390px;
+  min-height: 780px;
+  margin: auto;
+  padding: 22px 16px;
+  border: 5px solid #24232c;
+  border-radius: 38px;
+  background: linear-gradient(160deg, #3c3548, #77647b);
+  box-shadow: 0 15px 45px #0006;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-icons svg {
+  width: 16px;
+  height: 16px;
+}
+
+.header {
+  margin-bottom: 14px;
+}
+
+.header h1 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.widget {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ffffff30;
+  border-radius: 20px;
+  background: #ffffff18;
+  backdrop-filter: blur(12px);
+}
+
+.widget-title {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: .4px;
+}
+
+/* CUACA */
+
+.weather {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather h2 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.weather p {
+  font-size: 11px;
+  color: #e0d6e5;
+  margin-top: 5px;
+}
+
+.weather-icon {
+  font-size: 35px;
+}
+
+.weather-temp {
+  font-size: 20px;
+}
+
+/* GALERI */
+
+.gallery-photo {
+  height: 165px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #d4b9c9, #68728c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  background-size: cover;
+  background-position: center;
+  touch-action: pan-y;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+}
+
+/* TOMBOL */
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 11px;
+  color: white;
+  background: #ffffff25;
+}
+
+button:hover {
+  background: #ffffff40;
+}
+
+/* BAGIAN BAWAH */
+
+.bottom-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+/* APLIKASI */
+
+.app-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.app {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 3px;
+  border-radius: 15px;
+  background: #ffffff20;
+  border: 1px solid #ffffff20;
+}
+
+.app-icon {
+  font-size: 23px;
+}
+
+.app-name {
+  font-size: 10px;
+}
+
+/* MUSIK */
+
+.music-widget {
+  min-height: 145px;
+  padding: 12px;
+  border: 1px solid #ffffff30;
+  border-radius: 19px;
+  background: #ffffff18;
+}
+
+.music-cover {
+  width: 55px;
+  height: 55px;
+  margin: 10px auto;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #d6a9ba, #655c80);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.music-info {
+  text-align: center;
+  font-size: 11px;
+}
+
+.music-info p {
+  color: #ddd0e2;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.music-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.music-controls button {
+  padding: 7px 10px;
+}
+
+/* TEMAN RAYYAN */
+
+.friends-widget {
+  padding: 12px 9px;
+  border: 1px solid #ffffff30;
+  border-radius: 19px;
+  background: #ffffff18;
+  min-width: 0;
+}
+
+.friends-widget .widget-title {
+  text-align: center;
+}
+
+.friends-viewport {
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.friends-track {
+  display: flex;
+  transition: transform .35s ease;
+}
+
+.friends-page {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px 5px;
+  justify-items: center;
+  align-content: start;
+  padding: 4px 0;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+
+.contact img,
+.contact .avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .avatar {
+  background: linear-gradient(135deg, #d7b6c9, #82728e);
+  font-size: 23px;
+}
+
+.contact-name {
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.friend-dots {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 13px;
+}
+
+.friend-dot {
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border-radius: 50%;
+  background: #ffffff55;
+}
+
+.friend-dot.active {
+  background: white;
+}
+
+/* HALAMAN CATATAN DAN JURNAL */
+
+.app-page {
+  display: none;
+  margin-top: 20px;
+}
+
+.app-page h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.app-page textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  border-radius: 15px;
+  background: #ffffff20;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.app-page textarea::placeholder {
+  color: #ddd0e2;
+}
+
+.page-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.back-button {
+  margin-bottom: 15px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 10px;
+  color: #e0d6e5;
+}
+
+/* JOURNAL - THREADS STYLE */
+
+.journal-page {
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.journal-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.journal-topbar strong {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.journal-topbar .back-button {
+  margin: 0;
+}
+
+.journal-profile {
+  border: 1px solid #ffffff30;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff12;
+}
+
+.journal-cover {
+  height: 105px;
+  background:
+    linear-gradient(135deg, #d9b9ca, #8c7896, #51465d);
+}
+
+.journal-profile-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 14px;
+  margin-top: -30px;
+}
+
+.journal-avatar,
+.post-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e5c5d6, #a88da9);
+  border: 4px solid #65556f;
+  color: #51465d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.journal-edit {
+  border: 1px solid #ffffff65;
+  border-radius: 20px;
+  background: #ffffff18;
+  font-size: 11px;
+}
+
+.journal-bio {
+  padding: 10px 14px 15px;
+}
+
+.journal-bio h2 {
+  font-family: Georgia, serif;
+  font-size: 21px;
+}
+
+.journal-username {
+  color: #dfd2e2;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.journal-description {
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.journal-stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 13px;
+  font-size: 10px;
+  color: #dfd2e2;
+}
+
+.journal-stats strong {
+  color: white;
+}
+
+.journal-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 15px;
+  border-bottom: 1px solid #ffffff35;
+}
+
+.journal-tab {
+  text-align: center;
+  padding: 12px 3px;
+  font-size: 11px;
+  color: #d5c8dc;
+}
+
+.journal-tab.active {
+  color: white;
+  border-bottom: 2px solid #e5c5d6;
+  font-weight: bold;
+}
+
+.journal-feed {
+  margin-top: 5px;
+}
+
+.journal-post {
+  display: flex;
+  gap: 10px;
+  padding: 15px 2px;
+  border-bottom: 1px solid #ffffff25;
+}
+
+.post-avatar {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-width: 2px;
+  font-size: 15px;
+}
+
+.post-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+}
+
+.post-heading span {
+  color: #d5c8dc;
+}
+
+.post-heading .post-menu {
+  margin-left: auto;
+}
+
+.post-content > p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 28px;
+  margin-top: 13px;
+  color: #e5c5d6;
+  font-size: 17px;
+}
+
+.journal-empty {
+  text-align: center;
+  padding: 30px 8px;
+}
+
+.journal-empty span {
+  font-size: 25px;
+  color: #e5c5d6;
+}
+
+.journal-empty p {
+  font-family: Georgia, serif;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.journal-empty small {
+  display: block;
+  margin-top: 5px;
+  color: #d5c8dc;
+  font-size: 10px;
+}
+
+/* KOLOM POSTING JURNAL */
+
+.journal-composer {
+  display: flex;
+  gap: 10px;
+  padding: 15px 2px;
+  border-bottom: 1px solid #ffffff30;
+}
+
+.composer-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.composer-content textarea {
+  width: 100%;
+  min-height: 65px;
+  padding: 5px 0;
+  border: none;
+  outline: none;
+  resize: vertical;
+  background: transparent;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.composer-content textarea::placeholder {
+  color: #d5c8dc;
+}
+
+.composer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.composer-bottom span {
+  font-size: 10px;
+  color: #e5c5d6;
+}
+
+.composer-bottom button {
+  border-radius: 20px;
+  padding: 7px 14px;
+  background: #e5c5d6;
+  color: #51465d;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- STATUS BAR -->
+  <div class="status">
+    <span id="clock">00:00</span>
+
+    <div class="status-icons">
+      <!-- JARINGAN -->
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M2 20h3v-5H2zm5 0h3V11H7zm5 0h3V7h-3zm5 0h3V3h-3z"/>
+      </svg>
+
+      <!-- WIFI -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <path d="M2 8.5a15 15 0 0 1 20 0"/>
+        <path d="M5 12a10 10 0 0 1 14 0"/>
+        <path d="M8.5 15.5a5 5 0 0 1 7 0"/>
+        <circle cx="12" cy="19" r="1" fill="white"/>
+      </svg>
+
+      <!-- BATTERY -->
+      <svg viewBox="0 0 28 16">
+        <rect x="1" y="2" width="22" height="12" rx="3"
+          fill="none" stroke="white" stroke-width="1.5"/>
+        <rect x="24" y="5" width="3" height="6" rx="1" fill="white"/>
+        <rect x="3" y="4" width="18" height="8" rx="1" fill="white"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="home">
+
+    <div class="header">
+      <h1>My Own Pages ♡</h1>
+    </div>
+
+    <!-- WIDGET CUACA -->
+    <div class="widget">
+      <div class="weather">
+        <div>
+          <h2>Halo, Rayyan ♡</h2>
+          <p id="weatherDescription">Cuaca hari ini</p>
+          <div class="weather-temp" id="weatherTemp">--°C</div>
+        </div>
+        <div class="weather-icon" id="weatherIcon">☀️</div>
+      </div>
+    </div>
+
+    <!-- GALERI FOTO -->
+    <div class="widget">
+      <div class="widget-title">♡ GALERI FOTO</div>
+
+      <div class="gallery-photo" id="galleryPhoto">
+        ♡
+      </div>
+
+      <div class="gallery-controls">
+        <button onclick="changePhoto(-1)">‹</button>
+        <button onclick="changePhoto(1)">›</button>
+      </div>
+    </div>
+
+    <!-- BAGIAN APLIKASI, MUSIK, DAN TEMAN -->
+    <div class="bottom-layout">
+
+      <!-- KOLOM KIRI -->
+      <div>
+
+        <!-- APLIKASI KECIL -->
+        <div class="app-icons">
+
+          <div class="app" onclick="openApp('catatan')">
+            <div class="app-icon">📝</div>
+            <div class="app-name">Catatan</div>
+          </div>
+
+          <div class="app" onclick="openApp('jurnal')">
+            <div class="app-icon">📖</div>
+            <div class="app-name">Jurnal</div>
+          </div>
+
+        </div>
+
+        <!-- WIDGET MUSIK -->
+        <div class="music-widget">
+          <div class="widget-title">♫ MUSIK</div>
+
+          <div class="music-cover">♫</div>
+
+          <div class="music-info">
+            <strong id="songName">My Favorite Song</strong>
+            <p>Unknown Artist</p>
+          </div>
+
+          <div class="music-controls">
+            <button onclick="alert('Musik sebelumnya')">⏮</button>
+            <button onclick="playMusic()" id="playButton">▶</button>
+            <button onclick="alert('Musik berikutnya')">⏭</button>
+          </div>
+
+          <audio id="audioPlayer" style="display:none"></audio>
+        </div>
+
+      </div>
+
+      <!-- KOLOM KANAN -->
+      <div class="friends-widget">
+
+        <div class="widget-title">♡ TEMAN RAYYAN</div>
+
+        <div class="friends-viewport" id="friendsViewport">
+          <div class="friends-track" id="friendsTrack"></div>
+        </div>
+
+        <div class="friend-dots" id="friendDots"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- HALAMAN CATATAN -->
+  <div class="app-page" id="catatan">
+    <button class="back-button" onclick="goHome()">‹ Kembali</button>
+    <h2>Catatan 📝</h2>
+    <textarea id="catatanText" placeholder="Tulis catatanmu..."></textarea>
+    <div class="page-actions">
+      <button onclick="saveText('catatanText','catatanData')">Simpan</button>
+      <button onclick="clearText('catatanText')">Hapus</button>
+    </div>
+  </div>
+
+
+<!-- HALAMAN JURNAL -->
+<div class="app-page journal-page" id="jurnal">
+
+  <div class="journal-topbar">
+    <button class="back-button" onclick="goHome()">‹ Kembali</button>
+    <strong>Jurnal</strong>
+    <span>♡</span>
+  </div>
+
+  <!-- PROFIL -->
+  <div class="journal-profile">
+
+    <div class="journal-cover"></div>
+
+    <div class="journal-profile-info">
+      <div class="journal-avatar">R</div>
+      <button class="journal-edit" type="button">Edit profil</button>
+    </div>
+
+    <div class="journal-bio">
+      <h2>Rayyan</h2>
+      <p class="journal-username">@rayyan</p>
+      <p class="journal-description">
+        A little archive of my everyday life. ♡
+      </p>
+
+      <div class="journal-stats">
+        <span><strong>0</strong> Mengikuti</span>
+        <span><strong>0</strong> Pengikut</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TAB PROFIL -->
+  <div class="journal-tabs">
+    <div class="journal-tab active">Postingan</div>
+    <div class="journal-tab">Balasan</div>
+    <div class="journal-tab">Media</div>
+  </div>
+
+<!-- KOLOM BUAT POSTING -->
+<div class="journal-composer">
+
+  <div class="post-avatar">R</div>
+
+  <div class="composer-content">
+    <textarea
+      id="journalPostText"
+      placeholder="Apa yang sedang kamu pikirkan?"
+    ></textarea>
+
+    <div class="composer-bottom">
+      <span>♡ Bagikan ceritamu</span>
+      <button onclick="addJournalPost()">Posting</button>
+    </div>
+  </div>
+
+</div>
+
+ 
+<!-- DAFTAR POSTINGAN -->
+<div class="journal-feed" id="journalPosts">
+
+  <article class="journal-post">
+
+    <div class="post-avatar">R</div>
+
+    <div class="post-content">
+
+      <div class="post-heading">
+        <strong>Rayyan</strong>
+        <span>@rayyan · Baru saja</span>
+        <span class="post-menu">•••</span>
+      </div>
+
+      <p>
+        Selamat datang di ruang kecilku.
+        Tempat menyimpan cerita, foto, dan
+        potongan kehidupan sehari-hari. ♡
+      </p>
+
+      <div class="post-actions">
+        <span>♡</span>
+        <span>○</span>
+        <span>↗</span>
+      </div>
+
+    </div>
+  </article>
+
+</div>
+
+</div>
+
+<script>
+
+/* JAM ASLI */
+function updateClock() {
+  const now = new Date();
+
+  document.getElementById("clock").textContent =
+    now.toLocaleTimeString("id-ID", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
+/* GALERI FOTO */
+const photos = [
+  { color: "linear-gradient(135deg,#d4b9c9,#68728c)", icon: "♡" },
+  { color: "linear-gradient(135deg,#d9c3a8,#9b8298)", icon: "☁️" },
+  { color: "linear-gradient(135deg,#a9bdc4,#777c9e)", icon: "🌷" }
+];
+
+let photoIndex = 0;
+
+function showPhoto() {
+  const photo = photos[photoIndex];
+  const gallery = document.getElementById("galleryPhoto");
+
+  gallery.style.background = photo.color;
+  gallery.textContent = photo.icon;
+}
+
+function changePhoto(direction) {
+  photoIndex =
+    (photoIndex + direction + photos.length) % photos.length;
+
+ showPhoto();
+renderFriends();
+loadText();
+loadWeather();function renderJournalPosts() {
+  const container = document.getElementById("journalPosts");
+
+  const posts = JSON.parse(
+    localStorage.getItem("journalPosts") || "[]"
+  );
+
+  container.innerHTML = "";
+
+  posts.forEach(post => {
+    const article = document.createElement("article");
+    article.className = "journal-post";
+
+    article.innerHTML = `
+      <div class="post-avatar">R</div>
+
+      <div class="post-content">
+        <div class="post-heading">
+          <strong>Rayyan</strong>
+          <span>@rayyan · ${post.date}</span>
+        </div>
+
+        <p class="post-text"></p>
+
+        <div class="post-actions">
+          <button onclick="editJournalPost(${post.id})">
+            Edit
+          </button>
+
+          <button onclick="deleteJournalPost(${post.id})">
+            Hapus
+          </button>
+        </div>
+      </div>
+    `;
+
+    article.querySelector(".post-text").textContent = post.text;
+
+    container.appendChild(article);
+  });
+}
+}
+
+/* SWIPE GALERI */
+let galleryStartX = 0;
+
+const galleryElement = document.getElementById("galleryPhoto");
+
+galleryElement.addEventListener("touchstart", function(e) {
+  galleryStartX = e.touches[0].clientX;
+});
+
+galleryElement.addEventListener("touchend", function(e) {
+  const endX = e.changedTouches[0].clientX;
+  const difference = endX - galleryStartX;
+
+  if (Math.abs(difference) > 40) {
+    changePhoto(difference < 0 ? 1 : -1);
+  }
+});
+
+
+/* TEMAN RAYYAN */
+const friends = [
+  { name: "Teman 1", photo: "", text: "♡" },
+  { name: "Teman 2", photo: "", text: "♡" },
+  { name: "Teman 3", photo: "", text: "♡" },
+  { name: "Teman 4", photo: "", text: "♡" },
+  { name: "Teman 5", photo: "", text: "♡" },
+  { name: "Teman 6", photo: "", text: "♡" },
+  { name: "Teman 7", photo: "", text: "♡" },
+  { name: "Teman 8", photo: "", text: "♡" }
+];
+
+let friendPage = 0;
+const friendsPerPage = 4;
+
+function renderFriends() {
+  const track = document.getElementById("friendsTrack");
+  const dots = document.getElementById("friendDots");
+
+  track.innerHTML = "";
+  dots.innerHTML = "";
+
+  const totalPages = Math.ceil(friends.length / friendsPerPage);
+
+  for (let page = 0; page < totalPages; page++) {
+    const pageElement = document.createElement("div");
+    pageElement.className = "friends-page";
+
+    const start = page * friendsPerPage;
+    const currentFriends = friends.slice(
+      start,
+      start + friendsPerPage
+    );
+
+    currentFriends.forEach(friend => {
+      const contact = document.createElement("div");
+      contact.className = "contact";
+
+      if (friend.photo) {
+        const image = document.createElement("img");
+        image.src = friend.photo;
+        image.alt = friend.name;
+        contact.appendChild(image);
+      } else {
+        const avatar = document.createElement("div");
+        avatar.className = "avatar";
+        avatar.textContent = friend.text;
+        contact.appendChild(avatar);
+      }
+
+      const name = document.createElement("div");
+      name.className = "contact-name";
+      name.textContent = friend.name;
+
+      contact.appendChild(name);
+      pageElement.appendChild(contact);
+    });
+
+    track.appendChild(pageElement);
+
+    const dot = document.createElement("button");
+    dot.className = "friend-dot" + (page === friendPage ? " active" : "");
+    dot.onclick = () => showFriendPage(page);
+    dots.appendChild(dot);
+  }
+
+  updateFriendPage();
+}
+
+function showFriendPage(page) {
+  const totalPages = Math.ceil(friends.length / friendsPerPage);
+
+  friendPage = (page + totalPages) % totalPages;
+  updateFriendPage();
+}
+
+function updateFriendPage() {
+  const track = document.getElementById("friendsTrack");
+  track.style.transform = `translateX(-${friendPage * 100}%)`;
+
+  document.querySelectorAll(".friend-dot").forEach((dot, index) => {
+    dot.classList.toggle("active", index === friendPage);
+  });
+}
+
+/* SWIPE TEMAN */
+let friendStartX = 0;
+
+const friendsViewport = document.getElementById("friendsViewport");
+
+friendsViewport.addEventListener("touchstart", function(e) {
+  friendStartX = e.touches[0].clientX;
+});
+
+friendsViewport.addEventListener("touchend", function(e) {
+  const endX = e.changedTouches[0].clientX;
+  const difference = endX - friendStartX;
+
+  if (Math.abs(difference) > 40) {
+    showFriendPage(friendPage + (difference < 0 ? 1 : -1));
+  }
+});
+
+
+/* MUSIK */
+function playMusic() {
+  const audio = document.getElementById("audioPlayer");
+
+  if (!audio.src) {
+    alert("Tambahkan file musik terlebih dahulu.");
+    return;
+  }
+
+  if (audio.paused) {
+    audio.play();
+    document.getElementById("playButton").textContent = "⏸";
+  } else {
+    audio.pause();
+    document.getElementById("playButton").textContent = "▶";
+  }
+}
+
+
+/* CATATAN DAN JURNAL */
+function openApp(appName) {
+  document.getElementById("home").style.display = "none";
+
+  document.querySelectorAll(".app-page").forEach(page => {
+    page.style.display = "none";
+  });
+
+  document.getElementById(appName).style.display = "block";
+}
+
+function goHome() {
+  document.querySelectorAll(".app-page").forEach(page => {
+    page.style.display = "none";
+  });
+
+  document.getElementById("home").style.display = "block";
+}
+
+function saveText(inputId, storageKey) {
+  const value = document.getElementById(inputId).value;
+
+  localStorage.setItem(storageKey, value);
+
+  alert("Berhasil disimpan ♡");
+}
+
+function clearText(inputId) {
+  document.getElementById(inputId).value = "";
+}
+
+function loadText() {
+  const catatan = document.getElementById("catatanText");
+
+  if (catatan) {
+    catatan.value = localStorage.getItem("catatanData") || "";
+  }
+}
+
+
+/* CUACA */
+async function loadWeather() {
+  try {
+    const response = await fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude=-7.45&longitude=112.72&current=temperature_2m,weather_code&timezone=Asia%2FJakarta"
+    );
+
+    const data = await response.json();
+
+    const temperature = data.current.temperature_2m;
+    const code = data.current.weather_code;
+
+    document.getElementById("weatherTemp").textContent =
+      Math.round(temperature) + "°C";
+
+    let description = "Cuaca cerah";
+    let icon = "☀️";
+
+    if ([1, 2, 3].includes(code)) {
+      description = "Berawan";
+      icon = "⛅";
+    } else if ([45, 48].includes(code)) {
+      description = "Berkabut";
+      icon = "🌫️";
+    } else if (code >= 51 && code <= 67) {
+      description = "Hujan ringan";
+      icon = "🌧️";
+    } else if (code >= 80) {
+      description = "Hujan";
+      icon = "🌧️";
+    }
+
+    document.getElementById("weatherDescription").textContent =
+      description;
+
+    document.getElementById("weatherIcon").textContent = icon;
+
+  } catch (error) {
+    document.getElementById("weatherDescription").textContent =
+      "Cuaca belum tersedia";
+  }
+}
+
+/* FITUR POSTING JURNAL */
+
+function addJournalPost() {
+  const input = document.getElementById("journalPostText");
+  const content = input.value.trim();
+
+  if (content === "") {
+    alert("Tulis sesuatu terlebih dahulu ♡");
+    return;
+  }
+
+  const posts = JSON.parse(
+    localStorage.getItem("journalPosts") || "[]"
+  );
+
+  posts.unshift({
+    id: Date.now(),
+    text: content,
+    date: new Date().toLocaleString("id-ID")
+  });
+
+  localStorage.setItem("journalPosts", JSON.stringify(posts));
+
+  input.value = "";
+  renderJournalPosts();
+}
+
+function renderJournalPosts() {
+  const container = document.getElementById("journalPosts");
+
+  const posts = JSON.parse(
+    localStorage.getItem("journalPosts") || "[]"
+  );
+
+  container.innerHTML = "";
+
+  posts.forEach(post => {
+    const article = document.createElement("article");
+    article.className = "journal-post";
+
+    article.innerHTML = `
+      <div class="post-avatar">R</div>
+      <div class="post-content">
+        <div class="post-heading">
+          <strong>Rayyan</strong>
+          <span>@rayyan · ${post.date}</span>
+        </div>
+        <p class="post-text"></p>
+        <div class="post-actions">
+          <button onclick="editJournalPost(${post.id})">Edit</button>
+          <button onclick="deleteJournalPost(${post.id})">Hapus</button>
+        </div>
+      </div>
+    `;
+
+    article.querySelector(".post-text").textContent = post.text;
+    container.appendChild(article);
+  });
+}
+
+function editJournalPost(id) {
+  const posts = JSON.parse(localStorage.getItem("journalPosts") || "[]");
+  const post = posts.find(item => item.id === id);
+
+  if (!post) return;
+
+  const newText = prompt("Edit postinganmu:", post.text);
+
+  if (newText === null) return;
+
+  if (newText.trim() === "") {
+    alert("Postingan tidak boleh kosong ♡");
+    return;
+  }
+
+  post.text = newText.trim();
+
+  localStorage.setItem("journalPosts", JSON.stringify(posts));
+  renderJournalPosts();
+}
+
+function deleteJournalPost(id) {
+  if (!confirm("Yakin ingin menghapus postingan ini?")) return;
+
+  let posts = JSON.parse(localStorage.getItem("journalPosts") || "[]");
+
+  posts = posts.filter(item => item.id !== id);
+
+  localStorage.setItem("journalPosts", JSON.stringify(posts));
+  renderJournalPosts();
+}
+
+
+/* JALANKAN SEMUA */
+
+showPhoto();
+renderFriends();
+loadText();
+loadWeather();
+renderJournalPosts();
+
+</script>
+
+</script>
+
+</body>
+</html>
